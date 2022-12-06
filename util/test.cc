@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string>
 
-#include "util/test.h"
+#include "test.h"
 
 namespace testing {
 std::string TempDir() { return "/tmp/"; }
