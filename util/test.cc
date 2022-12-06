@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <string>
+#include <iostream>
 
 #include "test.h"
 
@@ -12,8 +13,8 @@ std::string TempDir() { return "/tmp/"; }
 }  // namespace testing
 
 struct Test {
-  void (*fn)(void);
-  const char *name;
+  void (*fn)(void); // function pointer
+  const char *name; // name of test
 };
 
 static Test tests[10000];
@@ -25,6 +26,7 @@ void RegisterTest(void (*fn)(void), const char *name) {
 }
 
 int main(int argc, char** argv) {
+  std::cout << "ntests = " << ntests << std::endl;
   for (int i = 0; i < ntests; i++) {
     printf("%s\n", tests[i].name);
     tests[i].fn();
